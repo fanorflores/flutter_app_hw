@@ -12,6 +12,7 @@ void main()
 
 class MyApp extends StatelessWidget {
   final double iconSize=40.0;
+  final TextStyle textStyle= new  TextStyle(color: Colors.greenAccent,fontSize: 30.0,fontFamily: "Roboto");
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -24,14 +25,14 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
              new MyCard(
-               title: new Text("Ilove NoNi"),
-             icon: new Icon(Icons.favorite, size:iconSize),),
+               title: new Text("Ilove NoNi",style:  textStyle,),
+             icon: new Icon(Icons.favorite, size:iconSize, color: Colors.blue ,),),
               new MyCard(
-                title: new Text("Ilove Fanor"),
-                icon: new Icon(Icons.thumb_up, size:iconSize),),
+                title: new Text("Ilove Fanor",style:  textStyle),
+                icon: new Icon(Icons.thumb_up, size:iconSize, color: Colors.red ,),),
               new MyCard(
-                title: new Text("Ilove NoNi"),
-                icon: new Icon(Icons.queue_music, size:iconSize),),
+                title: new Text("Ilove NoNi",style:  textStyle),
+                icon: new Icon(Icons.queue_music, size:iconSize, color: Colors.redAccent ,),),
             ],
           ),
         )
