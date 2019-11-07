@@ -18,9 +18,15 @@ class MyLogin extends StatefulWidget
 }
 class _MyLoginBuilder extends State<MyLogin>
 {
-  void onChangedMail(String mail)
+  String valorTextIn="";
+  final TextEditingController controller = new TextEditingController();
+
+  void onSubmited(String mail)
   {
-   print(mail);
+   setState(() {
+     valorTextIn+=mail+"\n";
+     controller.text="";
+   });
   }
 
   @override
@@ -31,14 +37,18 @@ class _MyLoginBuilder extends State<MyLogin>
         backgroundColor: Colors.redAccent,
       ),
       body: new Container(
+        padding: EdgeInsets.all(20.0),
         child:
         new Center(
           child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               new TextField(
                 decoration: new InputDecoration(hintText: "user@domain.com"),
-                onSubmitted: (String mail){onChangedMail(mail);},
-              )
+                controller: controller ,
+                onSubmitted: (String mail){onSubmited(mail);},
+              ),
+              new Text(valorTextIn)
             ],
           )
         ),
