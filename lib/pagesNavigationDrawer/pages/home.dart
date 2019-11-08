@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_hw/StateFulWidget.dart';
 
 void main ()
 {
@@ -25,6 +26,7 @@ class BodyHome extends StatelessWidget
             child: new Column(
               children: <Widget>[
                 new Icon(Icons.home, size: 40.0, color: Colors.yellowAccent,),
+                MyButtonSnack(),
               ],
             ),
           )
@@ -32,6 +34,30 @@ class BodyHome extends StatelessWidget
       ,
     )
       ;
+  }
+
+}
+
+class MyButtonSnack extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context)
+  {
+    return new RaisedButton(
+          child: new Text("Ver Snack Bar"),
+          onPressed:(){
+            Scaffold.of(context).showSnackBar(
+              new SnackBar(
+                content: new Text("Seguro que quiere cambiar esto?"),
+                duration: new Duration(seconds: 5),
+                action: new SnackBarAction(label: "Clic para hacerlo", onPressed: (){
+
+                    Navigator.of(context).pushNamed("/pages/settings.dart");
+
+                }),
+              )
+            );
+          } );
   }
 
 }
